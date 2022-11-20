@@ -1,8 +1,12 @@
 ; #lang racket
 (include "geometry.rkt")
 
-(define a
-  (point 1 3))
+(define (draw data)
+  data)
 
-(define mushroom
-  (get-default-geometry 'Гриб))
+(define (architect data)
+  data)
+
+(draw
+ (architect
+  (init-geometry "../data/mushroom.json" "../data/settings.json")))
