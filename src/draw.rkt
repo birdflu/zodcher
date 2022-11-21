@@ -51,4 +51,6 @@
                        #:indentation 'classic))
 
 (define (draw data)
-  data)
+  (map
+   (λ(hash-list-data) (show (get-element-xml hash-list-data)))
+   data))
