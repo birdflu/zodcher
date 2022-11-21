@@ -1,5 +1,7 @@
 (require xml)
 
+(define DIAGRAM_ID "zodcher_diagram")
+
 (define (get-element-xml json-element)
   (define (value key)
     (hash-ref json-element key))
@@ -22,12 +24,12 @@
     (string->xexpr
      (regexp-replace*
       #rx"\\$[A-z]+"
-      (xexpr->string xml-element-pattern)
+      (xexpr->string xml-element-pattern) 
       (λ (s)
         (hash-ref
          (hash "$id" (value 'id)
-               "$parent" (if (null? (value 'idParent))
-                             "diagram"
+               "$parent" (if (eq? 'null (value 'idParent))
+                             DIAGRAM_ID
                              (value 'idParent))
                "$value" (value 'name)
                "$style" (value 'style)
