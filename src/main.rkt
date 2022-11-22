@@ -6,6 +6,6 @@
 
 (draw
  (architect
-  (list (car (init-geometry
+  (init-geometry
               "../data/mushroom.json"
-              "../data/settings.json")))))
+              "../data/settings.json")))
