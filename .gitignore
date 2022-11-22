@@ -1,0 +1,7 @@
+.*.swp
+*.un~
+*.rkt~
+..gitignore.un~
+.gitignore~
+.idea*
+diagram.xml
