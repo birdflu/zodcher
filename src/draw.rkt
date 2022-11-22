@@ -47,10 +47,12 @@
     ))
 
 (define (show data)
-  (display-xml/content (xexpr->xml data)
-                       #:indentation 'classic))
+  (if (null? data) 'sdsads
+      (display-xml/content (xexpr->xml data)
+                           #:indentation 'classic)))
 
 (define (draw data)
-  (map
-   (λ(hash-list-data) (show (get-element-xml hash-list-data)))
-   data))
+  (filter (lambda (x) (not (void? x))) 
+          (map
+           (λ(hash-list-data) (show (get-element-xml hash-list-data)))
+           data)))
